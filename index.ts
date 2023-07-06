@@ -60,26 +60,73 @@
 //---------------------------------------------//
 //const array = [1,2,3,4,5]
 
+//-------------------FUNCIONES PERSONALIZADAS---------------------//
 const array = [1, 2, 3, 4, 5, 6, 7, 8, , 9, 10];
 
-const forEachUV = (arreglo, fn) => {
-  for (let i = 0; i < arreglo.length; i++) {
-    fn(arreglo[i]);
-  }
-};
+// const forEachUV = (arreglo, fn) => {
+//   for (let i = 0; i < arreglo.length; i++) {
+//     fn(arreglo[i]);
+//   }
+// };
 
-const unless = (predicate, fn) => {
-  if (!predicate) fn();
-};
+// const unless = (predicate, fn) => {
+//   if (!predicate) fn();
+// };
 
-const times = (times, fn) => {
-  for (let i = 0; i <= times; i++) {
-    fn(i);
-  }
-};
+// const times = (times, fn) => {
+//   for (let i = 0; i <= times; i++) {
+//     fn(i);
+//   }
+// };
 
-times(100, (n) => {
-  unless(n % 2, () => {
-    console.log(n, ' es par');
-  });
+// times(100, (n) => {
+//   unless(n % 2, () => {
+//     console.log(n, ' es par');
+//   });
+// });
+
+//MAP
+
+const array2 = array.map((item) => {
+  return item * 2;
 });
+
+const array3 = array.map((item) => {
+  return item * 3;
+});
+
+console.log(array);
+console.log(array2);
+console.log(array3);
+
+const cursos = [
+  { nombre: 'Angular', precio: 10000, lenguaje: 'JS' },
+  { nombre: 'React', precio: 10000, lenguaje: 'JS' },
+  { nombre: 'Vue', precio: 10000, lenguaje: 'JS' },
+  { nombre: 'SolidJS', precio: 8000, lenguaje: 'JS' },
+  { nombre: 'Svelte', precio: 7000, lenguaje: 'JS' },
+  { nombre: 'AstroJS', precio: 6500, lenguaje: 'JS' },
+  { nombre: 'Qwik', precio: 4500, lenguaje: 'JS' },
+  { nombre: 'Ember', precio: 5000, lenguaje: 'JS' },
+  { nombre: 'Blazor', precio: 10500, lenguaje: 'CSharp' },
+];
+
+//Ejercicio con map
+//Desconstar 5000 al objeto cuyo lenguaje sea JS
+
+const arrCursosDiscount = cursos.map((curso) => {
+  if (curso.lenguaje === 'JS') {
+    curso.precio -= 1000;
+  }
+  return curso;
+});
+
+const arrCursosUpper = cursos.map((curso) => {
+  if (curso.precio > 7000) {
+    return curso;
+  }
+  return curso;
+});
+
+console.log(arrCursosDiscount);
+console.log(arrCursosUpper);
