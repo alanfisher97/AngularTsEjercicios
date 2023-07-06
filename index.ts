@@ -87,17 +87,17 @@ const array = [1, 2, 3, 4, 5, 6, 7, 8, , 9, 10];
 
 //MAP
 
-const array2 = array.map((item) => {
-  return item * 2;
-});
+// const array2 = array.map((item) => {
+//   return item * 2;
+// });
 
-const array3 = array.map((item) => {
-  return item * 3;
-});
+// const array3 = array.map((item) => {
+//   return item * 3;
+// });
 
-console.log(array);
-console.log(array2);
-console.log(array3);
+// console.log(array);
+// console.log(array2);
+// console.log(array3);
 
 const cursos = [
   { nombre: 'Angular', precio: 10000, lenguaje: 'JS' },
@@ -115,18 +115,33 @@ const cursos = [
 //Desconstar 5000 al objeto cuyo lenguaje sea JS
 
 const arrCursosDiscount = cursos.map((curso) => {
+  //Esta manera fue en la que lo realizo Jimmy
+  // if (curso.lenguaje === 'JS') {
+  //   return {
+  //     ...curso,
+  //     precio: curso.precio - 5000,
+  //   };
+  //}
+
   if (curso.lenguaje === 'JS') {
     curso.precio -= 1000;
   }
   return curso;
 });
 
-const arrCursosUpper = cursos.map((curso) => {
+//Obtener los cursos con precio mayor a 7000 después de haber recibido el descuento
+const arrCursosUpper = cursos.filter((curso) => {
   if (curso.precio > 7000) {
     return curso;
   }
-  return curso;
 });
 
+//Sumar el precio de todos los cursos
+
+const arrCursosSum = cursos.reduce(
+  (accumulator, currentValue) => accumulator + currentValue.precio,
+  0
+);
 console.log(arrCursosDiscount);
 console.log(arrCursosUpper);
+console.log(arrCursosSum);
