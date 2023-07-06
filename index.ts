@@ -43,16 +43,43 @@
 
 // fn_externa();
 
-let sMsj = '';
+// let sMsj = '';
 
-//Ejercicio
-const fn_externa = (sVariable) => {
-  const fn_interna = () => {
-    let variableInterna = 'Variable interna';
-    console.log(variableInterna);
-    console.log(sVariable);
-  };
-  fn_interna();
+// //Ejercicio
+// const fn_externa = (sVariable) => {
+//   const fn_interna = () => {
+//     let variableInterna = 'Variable interna';
+//     console.log(variableInterna);
+//     console.log(sVariable);
+//   };
+//   fn_interna();
+// };
+
+// fn_externa('Hola');
+
+//---------------------------------------------//
+//const array = [1,2,3,4,5]
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, , 9, 10];
+
+const forEachUV = (arreglo, fn) => {
+  for (let i = 0; i < arreglo.length; i++) {
+    fn(arreglo[i]);
+  }
 };
 
-fn_externa('Hola');
+const unless = (predicate, fn) => {
+  if (!predicate) fn();
+};
+
+const times = (times, fn) => {
+  for (let i = 0; i <= times; i++) {
+    fn(i);
+  }
+};
+
+times(100, (n) => {
+  unless(n % 2, () => {
+    console.log(n, ' es par');
+  });
+});
