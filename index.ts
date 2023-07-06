@@ -130,6 +130,7 @@ const arrCursosDiscount = cursos.map((curso) => {
 });
 
 //Obtener los cursos con precio mayor a 7000 después de haber recibido el descuento
+//FILTER
 const arrCursosUpper = cursos.filter((curso) => {
   if (curso.precio > 7000) {
     return curso;
@@ -142,6 +143,19 @@ const arrCursosSum = cursos.reduce(
   (accumulator, currentValue) => accumulator + currentValue.precio,
   0
 );
+//REDUCE
+const total = cursos.reduce((prev, current) => {
+  console.log(`${prev},${current.precio}`);
+  return prev + current.precio;
+}, 0);
+
+//Buscar el elemento del arreglo con el nombre de Angular y mostrarlo dentro de otro arreglo,(o el mismo)
+//FIND
+const arrCursosFindName = cursos.find((curso) => {
+  curso.nombre == 'Angular';
+});
+
 console.log(arrCursosDiscount);
 console.log(arrCursosUpper);
 console.log(arrCursosSum);
+console.log(arrCursosFindName);
